@@ -11,6 +11,26 @@ class BinarySearchTree {
     this.root = null;
   }
 
+  breadthFirstSearch() {
+    let currentNode = this.root;
+
+    const queue = [];
+    const result = [];
+
+    queue.push(currentNode);
+
+    while (queue.length) {
+      currentNode = queue.shift();
+
+      result.push(currentNode.value);
+
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+
+    return result;
+  }
+
   contains(value) {
     if (!this.root) return false;
 
@@ -73,10 +93,11 @@ class BinarySearchTree {
 // myTree.insert(21);
 // myTree.insert(76);
 // myTree.insert(18);
+// myTree.insert(27);
 // myTree.insert(52);
 // myTree.insert(82);
-// myTree.insert(27);
 
 // console.log(myTree);
 // console.log(myTree.contains(21));
 // console.log(myTree.minimumValue());
+// console.log(myTree.breadthFirstSearch());
