@@ -31,6 +31,22 @@ class BinarySearchTree {
     return result;
   }
 
+  depthFirstSearchInOrder() {
+    const result = [];
+
+    const traverse = (currentNode) => {
+      if (currentNode.left) traverse(currentNode.left);
+
+      result.push(currentNode.value);
+
+      if (currentNode.right) traverse(currentNode.right);
+    };
+
+    traverse(this.root);
+
+    return result;
+  }
+
   depthFirstSearchPostOrder() {
     const result = [];
 
@@ -133,3 +149,4 @@ class BinarySearchTree {
 // console.log(myTree.breadthFirstSearch());
 // console.log(myTree.depthFirstSearchPreOrder());
 // console.log(myTree.depthFirstSearchPostOrder());
+// console.log(myTree.depthFirstSearchInOrder());
