@@ -31,6 +31,21 @@ class BinarySearchTree {
     return result;
   }
 
+  depthFirstSearchPreOrder() {
+    const result = [];
+
+    const traverse = (currentNode) => {
+      result.push(currentNode.value);
+
+      if (currentNode.left) traverse(currentNode.left);
+      if (currentNode.right) traverse(currentNode.right);
+    };
+
+    traverse(this.root);
+
+    return result;
+  }
+
   contains(value) {
     if (!this.root) return false;
 
@@ -101,3 +116,4 @@ class BinarySearchTree {
 // console.log(myTree.contains(21));
 // console.log(myTree.minimumValue());
 // console.log(myTree.breadthFirstSearch());
+// console.log(myTree.depthFirstSearchPreOrder());
